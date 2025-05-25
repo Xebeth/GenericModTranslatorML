@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net9.0</TargetFramework>
+        <LangVersion>latest</LangVersion>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <None Update="config.json">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+
+    <ItemGroup>
+        <LocalizationItems Include="$(SolutionDir)Localization\**" Exclude="$(SolutionDir)Localization\.gitignore">
+            <InProject>false</InProject>
+        </LocalizationItems>
+        <InputItems Include="$(SolutionDir)Input\**" Exclude="$(SolutionDir)Input\.gitignore">
+            <InProject>false</InProject>
+        </InputItems>
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="NorthEdge.MagicLoaderGenerator" Version="1.2.0" />
+    </ItemGroup>
+
+    <Target Name="Copy localization files" AfterTargets="Build">
+        <Copy SourceFiles="@(LocalizationItems)" DestinationFiles="@(LocalizationItems->'$(OutputPath)\Localization\%(RecursiveDir)%(Filename)%(Extension)')"/>
+        <Copy SourceFiles="@(InputItems)" DestinationFiles="@(InputItems->'$(OutputPath)\Input\%(RecursiveDir)%(Filename)%(Extension)')"/>
+    </Target>
+
+</Project>
