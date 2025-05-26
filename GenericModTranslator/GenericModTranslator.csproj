@@ -6,10 +6,11 @@
         <LangVersion>latest</LangVersion>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <AssemblyVersion>1.1.0</AssemblyVersion>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="NorthEdge.MagicLoaderGenerator" Version="1.2.1" />
+        <PackageReference Include="NorthEdge.MagicLoaderGenerator" Version="1.3.0" />
     </ItemGroup>
 
     <ItemGroup>
@@ -45,6 +46,11 @@
         <ReadmeFile Include="$(SolutionDir)\LICENSE">
             <InProject>false</InProject>
         </ReadmeFile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.Extensions.Logging" Version="9.0.5" />
+      <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="9.0.5" />
     </ItemGroup>
 
     <Target Name="Prepublish documentation" BeforeTargets="PrepareForPublish">

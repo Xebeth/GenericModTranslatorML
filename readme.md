@@ -92,3 +92,5 @@ The structure of the project should look as follows:
 - First stable release
 ## Version 1.0.1
 - Update the MagicLoaderGenerator library to version 1.2.1 to fix problems with the generated Zip archives
+## Version 1.1.0
+- Updated MagicLoaderGenerator to 1.3.0 and added logging
